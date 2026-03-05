@@ -1,7 +1,9 @@
 'use client'
 
 import { SquarePen, Trash } from 'lucide-react';
-const PostListing = ({ startEdit , handleDeletePost , data , isLoading}) => {
+import Link from 'next/link';
+
+const PostListing = ({ handleDeletePost , data , isLoading}) => {
     return (
         <div className='w-xl'>
             <div className='bg-gray-700 text-gray-300'>
@@ -15,9 +17,11 @@ const PostListing = ({ startEdit , handleDeletePost , data , isLoading}) => {
                             <button onClick={() => handleDeletePost(post._id)}>
                                 <Trash />
                             </button>
-                            <button onClick={() => startEdit(post)}>
-                                <SquarePen />
-                            </button>
+                            <Link href={`/posts/update/${post._id}`}>
+                                <button>
+                                    <SquarePen />
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 ))}

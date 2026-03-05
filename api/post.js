@@ -21,3 +21,8 @@ export const updatePost = async ({ id , post }) => {
     const {data} = await api.patch(`/posts/${id}`,post);
     return data
 }
+
+export const fetchPost = async (id) => {
+    const {data} = await api.get(`/posts/${id}`);
+    return data
+}
